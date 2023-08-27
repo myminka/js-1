@@ -34,7 +34,20 @@ function personToString(person){
 Ваш возраст в днях: ${person.age * 365}
 Через 5 лет вам будет: ${Number(person.age) + 5}
 Ваш пол: ${person.isMale ? "мужской" : "женский"}
-Вы на пенсии: ${person.age > 63 ? "да" : "нет"}`
+Вы на пенсии: ${isRetired(person.isMale, person.age) ? "да" : "нет"}`
 
     return message;
+}
+
+function isRetired(isMale, age){
+    if (isMale && age >= 63){
+        return true;
+    }
+    else {
+        if (age >= 60){
+            return true;
+        }
+    }
+
+    return false;
 }
