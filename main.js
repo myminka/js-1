@@ -3,17 +3,35 @@ var message = personToString(person);
 alert(message);
 
 function personalDataEnter(){
-    var name = prompt("Enter your full name(name, surname and fathername):")
-    var wordsCount = name.split(" ").length;
+   
+    var isValidName = false
 
-    if (wordsCount !== 3 && wordsCount !== 2){
-        throw new SyntaxError("Incorrect name format")
+    while(!isValidName){
+        var name = prompt("Enter your full name(name, surname and fathername):")
+        
+        if (name !== null){
+            var wordsCount = name.split(" ").length
+        }
+        
+        if (wordsCount === 3 || wordsCount === 2){
+            isValidName = true
+        }
+        else{
+            alert("Enter valid name! In format 'Name Surname Fathername(optional)'")
+        }
     }
 
-    var age = prompt("Enter your age:")
+    var isValidAge = false
 
-    if (age <= 0 || age > 150){
-        throw new RangeError("Incorrect age range!")
+    while(!isValidAge){
+        var age = prompt("Enter your age:")
+
+        if (age > 0 && age < 150){
+            isValidAge = true
+        }
+        else{
+            alert("Incorrect age range")
+        }
     }
 
     var gender = confirm("Are you male?")
