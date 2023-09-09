@@ -1,3 +1,5 @@
 function customTrim(str){
-    console.log(str);
+    return str.trim();
 }
+
+module.exports = customTrim;
